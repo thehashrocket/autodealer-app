@@ -1,8 +1,9 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 const DealerBox = ({ name, logo, tagline }: { name: string, logo: string, tagline: string }) => (
   <Link href={`/dealer/${name.toLowerCase()}`} className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-    <img src={logo} alt={`${name} logo`} className="w-24 h-24 mx-auto mb-4" />
+    <Image src={logo} alt={`${name} logo`} width={96} height={96} className="mx-auto mb-4" />
     <h3 className="text-xl font-bold text-center mb-2">{name}</h3>
     <p className="text-gray-600 text-center">{tagline}</p>
   </Link>
@@ -13,7 +14,7 @@ export default function Home() {
     <div className="container mx-auto px-4">
       <header className="py-8 mb-8 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-b-lg">
         <h1 className="text-4xl font-bold text-center mb-2">MantecaCars.com</h1>
-        <p className="text-xl text-center">New and Used Cars, Trucks and SUV's</p>
+        <p className="text-xl text-center">New and Used Cars, Trucks and SUV&apos;s</p>
       </header>
 
       <main>

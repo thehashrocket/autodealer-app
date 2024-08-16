@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation'
-import { JSX, Key } from 'react'
+import Image from 'next/image'
 
-const FeaturedVehicle = ({ image, name, description }: { image: string, name: string, description: string }) => (
+const FeaturedVehicle = ({ image, name, description }: { image: string; name: string; description: string }) => (
     <div className="bg-white p-6 rounded-lg shadow-md">
-        <img src={image} alt={name} className="w-full h-48 object-cover mb-4 rounded" />
+        <Image src={image} alt={name} width={400} height={300} className="w-full h-48 object-cover mb-4 rounded" />
         <h3 className="text-xl font-bold mb-2">{name}</h3>
         <p className="text-gray-600 mb-4">{description}</p>
         <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors duration-300">
@@ -12,17 +12,21 @@ const FeaturedVehicle = ({ image, name, description }: { image: string, name: st
     </div>
 )
 
-async function getDealerInfo(name: string | number) {
+type DealerInfo = {
+    name: string;
+    address: string;
+    phone: string;
+    website: string;
+    featuredVehicles: Array<{
+        image: string;
+        name: string;
+        description: string;
+    }>;
+};
+
+async function getDealerInfo(name: string): Promise<DealerInfo | null> {
     // This would normally be an API call or database query
-    const dealers: {
-        [key: string]: {
-            name: string;
-            address: string;
-            phone: string;
-            website: string;
-            featuredVehicles: { image: string; name: string; description: string; }[];
-        }
-    } = {
+    const dealers: Record<string, DealerInfo> = {
         'manteca-toyota': {
             name: 'Manteca Toyota',
             address: "123 Main St, Manteca, CA 95337",
@@ -35,12 +39,10 @@ async function getDealerInfo(name: string | number) {
             ]
         },
         // Add other dealers here
-    }
+    };
 
-    return dealers[name] || null
+    return dealers[name] ?? null;
 }
-
-import { NextPageContext } from 'next';
 
 export default async function DealerPage({ params }: { params: { name: string } }) {
     const dealerInfo = await getDealerInfo(params.name)
@@ -66,7 +68,7 @@ export default async function DealerPage({ params }: { params: { name: string } 
                 <section>
                     <h2 className="text-2xl font-bold mb-4">Featured Vehicles</h2>
                     <div className="grid gap-6">
-                        {dealerInfo.featuredVehicles.map((vehicle: JSX.IntrinsicAttributes & { image: string; name: string; description: string }, index: Key | null | undefined) => (
+                        {dealerInfo.featuredVehicles.map((vehicle, index) => (
                             <FeaturedVehicle key={index} {...vehicle} />
                         ))}
                     </div>
