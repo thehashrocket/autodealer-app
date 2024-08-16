@@ -33,9 +33,42 @@ async function getDealerInfo(name: string): Promise<DealerInfo | null> {
             phone: "(123) 456-7890",
             website: "https://www.mantecatoyota.com",
             featuredVehicles: [
-                { image: "/cars/toyota1.jpg", name: "2024 Toyota Camry", description: "Midsize Sedan" },
-                { image: "/cars/toyota2.jpg", name: "2024 Toyota RAV4", description: "Compact SUV" },
-                { image: "/cars/toyota3.jpg", name: "2024 Toyota Tundra", description: "Full-size Pickup" },
+                { image: "/cars/toyota1.png", name: "2024 Toyota Camry", description: "Midsize Sedan" },
+                { image: "/cars/toyota2.png", name: "2024 Toyota RAV4", description: "Compact SUV" },
+                { image: "/cars/toyota3.png", name: "2024 Toyota Tundra", description: "Full-size Pickup" },
+            ]
+        },
+        'manteca-ford': {
+            name: 'Manteca Ford',
+            address: "456 Elm St, Manteca, CA 95337",
+            phone: "(123) 456-7890",
+            website: "https://www.mantecaford.com",
+            featuredVehicles: [
+                { image: "/cars/ford1.png", name: "2024 Ford Mustang", description: "Sports Car" },
+                { image: "/cars/ford2.png", name: "2024 Ford Explorer", description: "Midsize SUV" },
+                { image: "/cars/ford3.png", name: "2024 Ford F-150", description: "Full-size Pickup" },
+            ]
+        },
+        'manteca-chevrolet': {
+            name: 'Manteca Chevrolet',
+            address: "789 Oak St, Manteca, CA 95337",
+            phone: "(123) 456-7890",
+            website: "https://www.mantecachevy.com",
+            featuredVehicles: [
+                { image: "/cars/chevy1.png", name: "2024 Chevrolet Corvette", description: "Sports Car" },
+                { image: "/cars/chevy2.png", name: "2024 Chevrolet Equinox", description: "Compact SUV" },
+                { image: "/cars/chevy3.png", name: "2024 Chevrolet Silverado", description: "Full-size Pickup" },
+            ]
+        },
+        'manteca-honda': {
+            name: 'Manteca Honda',
+            address: "101 Pine St, Manteca, CA 95337",
+            phone: "(123) 456-7890",
+            website: "https://www.mantecahonda.com",
+            featuredVehicles: [
+                { image: "/cars/honda1.webp", name: "2024 Honda Civic", description: "Compact Car" },
+                { image: "/cars/honda2.webp", name: "2024 Honda CR-V", description: "Compact SUV" },
+                { image: "/cars/honda3.webp", name: "2024 Honda Ridgeline", description: "Midsize Pickup" },
             ]
         },
         // Add other dealers here
