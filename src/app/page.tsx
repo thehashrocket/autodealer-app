@@ -12,9 +12,8 @@ const DealerBox = ({ name, logo, tagline, link_name }: { name: string, logo: str
 export default function Home() {
   return (
     <div className="container mx-auto px-4">
-      <header className="py-8 mb-8 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-b-lg">
-        <h1 className="text-4xl font-bold text-center mb-2">MantecaCars.com</h1>
-        <p className="text-xl text-center">New and Used Cars, Trucks and SUV&apos;s</p>
+      <header className="py-0 mb-8 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-b-lg">
+        <Image src="/banners/MantecaCars.jpg" alt="MantecaCars.com" width={1085} height={389} />
       </header>
 
       <main>
